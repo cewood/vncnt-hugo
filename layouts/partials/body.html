@@ -13,9 +13,11 @@
         <section id="contact" aria-label="Contact">
           <div class="icons" aria-label="Links">
           <h2 class="h3-like" aria-label="Link Icons">
-            {{ range $contact_key,  $contact_link := .Site.Params.contact }}<a class="icon" href="{{ $contact_link }}" target="_blank" rel="noopener me">
-              <i class="fab fa-{{ $contact_key }}" title="{{ $contact_key }}" aria-label="Go to {{ $contact_key }}."></i>
-            </a>{{ end }}
+            {{- range .Site.Params.contacts }}
+            <a class="icon" href="{{ .link }}" target="_blank" rel="noopener me">
+              <i class="{{ .icon }}" title="{{ .name }}" aria-label="Go to {{ .name }}."></i>
+            </a>
+            {{- end }}
           </h2>
           </div>
         </section>
